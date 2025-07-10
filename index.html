@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sicaya | Joya Cultural de Junín</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5A2B;
+            --primary-dark: #6B4423;
+            --secondary: #4A7C59;
+            --accent: #D4A59A;
+            --light: #F8F4E3;
+            --dark: #2A2B2A;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/sicaya-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Secciones */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .divider {
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0 auto;
+        }
+        
+        /* Tarjetas de contenido mejoradas */
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .card-img-container {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s ease;
+            display: block;
+        }
+        
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+        
+        .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .img-overlay i {
+            margin-right: 8px;
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .card-content h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .card-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .feature-list {
+            margin: 25px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list i {
+            color: var(--primary);
+            margin-right: 12px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* Sección especial para festividades */
+        .festividad {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .festividad .card-content h3 {
+            color: white;
+        }
+        
+        .festividad .card-content h3:after {
+            background-color: white;
+        }
+        
+        .festividad .feature-list i {
+            color: white;
+        }
+        
+        /* Footer mejorado */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-description {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .card-img-container {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .card-img-container {
+                height: 250px;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                height: 70vh;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .card-img-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Patrimonio Cultural de Sicaya</h1>
+            <p>Descubre los tesoros históricos, naturales y tradicionales de este distrito de Junín</p>
+        </div>
+    </header>
+
+    <!-- Plaza de Toros -->
+    <section id="plaza">
+        <div class="container">
+            <div class="section-header">
+                <h2>Plaza de Toros</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (1).jpg" alt="Plaza de Toros de Sicaya" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-map-marker-alt"></i> Plaza Principal de Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Emblema de la Cultura Taurina</h3>
+                    <p>La plaza de toros de Sicaya es uno de los escenarios más emblemáticos de la cultura taurina. Su estructura circular, con gradas que rodean el ruedo, está diseñada para ofrecer una visión completa del espectáculo a todos los asistentes.</p>
+                    <p>En el centro, el ruedo simboliza el espacio de enfrentamiento entre el torero y el toro, cargado de simbolismo, emoción y tradición. Este lugar representa la fusión de la cultura española con las tradiciones andinas que caracterizan a la región.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-calendar-alt"></i> <strong>Temporada taurina:</strong> Julio - Agosto durante las Fiestas Patrias</li>
+                        <li><i class="fas fa-users"></i> <strong>Capacidad:</strong> 1,500 espectadores</li>
+                        <li><i class="fas fa-history"></i> <strong>Construcción:</strong> Siglo XIX, estilo neocolonial</li>
+                    </ul>
+                    
+                    <p>La plaza no solo alberga eventos taurinos, sino que también es escenario de importantes reuniones comunitarias y celebraciones tradicionales que forman parte del calendario festivo de Sicaya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Río de Sicaya -->
+    <section id="rio" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Río de Sicaya</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (2).jpg" alt="Río de Sicaya" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-water"></i> Río Mantaro, Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Corazón Natural del Distrito</h3>
+                    <p>El río de Sicaya es un lugar de gran importancia para la comunidad local, ya que cumple funciones prácticas en la vida diaria de los habitantes. Sus aguas cristalinas han sido testigo del desarrollo del distrito a través de los años.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-water"></i> <strong>Importancia:</strong> Fuente de agua para riego agrícola y consumo</li>
+                        <li><i class="fas fa-tree"></i> <strong>Ecosistema:</strong> Alberga diversas especies de flora y fauna autóctona</li>
+                        <li><i class="fas fa-users"></i> <strong>Uso comunitario:</strong> Lugar de encuentro social y recreación familiar</li>
+                    </ul>
+                    
+                    <p>Durante los meses de verano, el río se convierte en un espacio de esparcimiento donde las familias acuden para refrescarse y compartir momentos de esparcimiento, manteniendo vivas las tradiciones de convivencia con la naturaleza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iglesia de Sicaya -->
+    <section id="iglesia">
+        <div class="container">
+            <div class="section-header">
+                <h2>Iglesia de Sicaya</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (3).jpg" alt="Iglesia de Sicaya" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-church"></i> Iglesia Colonial de Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Centro Espiritual y Cultural</h3>
+                    <p>La Iglesia de Sicaya, ubicada en el distrito de Sicaya, región Junín, es uno de los lugares más representativos y apreciados por sus habitantes. Se trata de una construcción antigua de estilo colonial andino, que ha sido preservada por generaciones y que hoy en día sigue cumpliendo un papel fundamental en la vida de la comunidad.</p>
+                    
+                    <p>Entre las celebraciones más comunes que se realizan en esta iglesia se encuentran:</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-baby"></i> <strong>Bautizos:</strong> Ceremonias que dan la bienvenida a nuevos miembros de la comunidad</li>
+                        <li><i class="fas fa-bible"></i> <strong>Primeras comuniones:</strong> Importante rito de paso para los niños</li>
+                        <li><i class="fas fa-ring"></i> <strong>Matrimonios:</strong> Uniones que fortalecen los lazos familiares</li>
+                        <li><i class="fas fa-parade"></i> <strong>Procesiones:</strong> En honor a los santos patronos del distrito</li>
+                    </ul>
+                    
+                    <p>Estas ceremonias son momentos muy importantes para las familias sicayinas, que se reúnen con fe y alegría para compartir y mantener vivas sus costumbres religiosas. La iglesia también alberga valiosas obras de arte religioso y arquitectura colonial que atraen a visitantes de toda la región.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mirador de Sicaya -->
+    <section id="mirador" style="background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mirador de Sicaya</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (4).jpg" alt="Mirador de Sicaya" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-mountain"></i> Vista panorámica de Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Vista Panorámica</h3>
+                    <p>El Mirador de Sicaya es un atractivo turístico ubicado en las alturas del distrito de Sicaya. Desde su privilegiada posición, ofrece una vista incomparable del valle y sus alrededores, siendo uno de los lugares más fotografiados de la región.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-mountain"></i> <strong>Vistas:</strong> Panorama completo del valle del Mantaro</li>
+                        <li><i class="fas fa-camera"></i> <strong>Fotografía:</strong> Lugar ideal para capturar amaneceres y atardeceres</li>
+                        <li><i class="fas fa-hiking"></i> <strong>Acceso:</strong> Caminata moderada de aproximadamente 40 minutos</li>
+                    </ul>
+                    
+                    <p>Es un lugar ideal para tomar fotos, respirar aire puro y conectarse con la naturaleza. Muchos visitantes y comuneros suben al mirador durante paseos familiares o festividades locales, convirtiéndolo en un punto de encuentro intergeneracional donde se transmiten historias y tradiciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Santiago -->
+    <section id="santiago" class="festividad">
+        <div class="container">
+            <div class="section-header">
+                <h2>El Santiago</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (5).jpg" alt="Danza El Santiago" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-music"></i> Danza tradicional de Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Expresión de Identidad Cultural</h3>
+                    <p>En Sicaya, el Santiago se baila por congregaciones y lo hacen cada año; es una costumbre muy antigua que forma parte de nuestra identidad cultural. Esta tradición se remonta a la época colonial y representa la fusión de elementos indígenas y españoles.</p>
+                    
+                    <p>Durante esta festividad, los pobladores se visten con trajes típicos y salen a las calles a bailar al ritmo de bandas, huaynos y tunantadas, demostrando alegría, fe y unión. Los bailarines, organizados en comparsas, recorren las principales calles del distrito en un colorido desfile que atrae a visitantes de toda la región.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-calendar-day"></i> <strong>Fecha:</strong> 25 de julio (festividad de Santiago Apóstol)</li>
+                        <li><i class="fas fa-tshirt"></i> <strong>Vestimenta:</strong> Trajes típicos bordados con motivos andinos</li>
+                        <li><i class="fas fa-music"></i> <strong>Música:</strong> Interpretada con violines, arpas y saxos</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Gastronomía:</strong> Se preparan platillos tradicionales como la pachamanca</li>
+                    </ul>
+                    
+                    <p>Esta celebración no solo es una expresión artística, sino también un mecanismo de cohesión social que fortalece los lazos comunitarios y transmite valores culturales a las nuevas generaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrera de Caballos -->
+    <section id="carrera">
+        <div class="container">
+            <div class="section-header">
+                <h2>Carrera de Caballos</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="assets/descarga (6).jpg" alt="Carrera de Caballos" class="card-img">
+                    <div class="img-overlay">
+                        <i class="fas fa-horse"></i> Tradición ecuestre de Sicaya
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Tradición Ecuestre</h3>
+                    <p>Cada 20 de enero se realiza la gran carrera de caballos en Sicaya, donde participan jinetes y caballos de distintos lugares del valle y de otras regiones del país. Este evento forma parte de las festividades patronales en honor al Señor de la Exaltación.</p>
+                    
+                    <p>Esta competencia tradicional reúne a toda la comunidad y visitantes que se acercan para disfrutar del espectáculo, apoyar a sus jinetes y celebrar con música, comida y alegría. La carrera no solo es una muestra de habilidad y destreza, sino también una expresión de orgullo local y parte importante de las festividades patronales.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-calendar-day"></i> <strong>Fecha:</strong> 20 de enero (anual)</li>
+                        <li><i class="fas fa-horse"></i> <strong>Participantes:</strong> Jinetes de todo el valle del Mantaro</li>
+                        <li><i class="fas fa-trophy"></i> <strong>Premios:</strong> Reconocimientos económicos y simbólicos</li>
+                        <li><i class="fas fa-utensils"></i> <strong>Gastronomía:</strong> Feria de comidas típicas durante el evento</li>
+                    </ul>
+                    
+                    <p>Además de la competencia principal, el evento incluye exhibiciones de destreza ecuestre, concursos de adornos tradicionales para los caballos y presentaciones de bandas musicales que animan la jornada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Sicaya</div>
+                <p class="footer-description">Distrito lleno de tradiciones, historia y belleza natural en el corazón del Perú</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                
+                <p class="copyright">© 2025 Todos los derechos reservados | Municipalidad Distrital de Sicaya</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
